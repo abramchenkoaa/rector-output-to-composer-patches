@@ -2,3 +2,4 @@ vendor/
 patches/
 !patches/.gitkeep
 rector.json
+.idea

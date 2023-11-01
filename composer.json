@@ -1,0 +1,25 @@
+{
+  "name": "labofgood/rector-output-to-composer-patches",
+  "description": "This tool utilizes Rector json output to create composer patches for third-party packages.",
+  "keywords": ["dev"],
+  "require": {
+    "php": "^8.1",
+    "symfony/console": "^v6.3.4"
+  },
+  "require-dev": {
+    "roave/security-advisories": "dev-latest"
+  },
+  "autoload": {
+    "psr-4": {
+      "App\\": "src/"
+    }
+  },
+  "license": [
+    "BSD-3-Clause"
+  ],
+  "authors": [
+    {
+      "name": "Anton Abramchenko"
+    }
+  ]
+}
