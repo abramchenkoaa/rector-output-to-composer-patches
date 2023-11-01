@@ -15,7 +15,17 @@ declare(strict_types=1);
 define('BP', dirname(__DIR__));
 const DS = DIRECTORY_SEPARATOR;
 
-require BP . '/vendor/autoload.php';
+$possibleAutoloadPaths = [
+    __DIR__ . '/../../../autoload.php', // when used as a composer package
+    BP . '/vendor/autoload.php', // when used standalone
+];
+
+foreach ($possibleAutoloadPaths as $path) {
+    if (file_exists($path)) {
+        require $path;
+        break;
+    }
+}
 
 use Symfony\Component\Console\Application;
 use App\Command\RectorOutputToPatch;
