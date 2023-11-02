@@ -28,7 +28,7 @@ foreach ($possibleAutoloadPaths as $path) {
 }
 
 use Symfony\Component\Console\Application;
-use App\Command\RectorOutputToPatch;
+use Labofgood\RectorPatchGenerator\Command\RectorOutputToPatch;
 
 $application = new Application();
 

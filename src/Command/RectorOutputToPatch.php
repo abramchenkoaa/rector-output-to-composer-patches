@@ -11,7 +11,7 @@
  */
 declare(strict_types=1);
 
-namespace App\Command;
+namespace Labofgood\RectorPatchGenerator\Command;
 
 use JsonException;
 use Symfony\Component\Console\Command\Command;
