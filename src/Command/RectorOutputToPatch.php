@@ -58,7 +58,7 @@ class RectorOutputToPatch extends Command
                 self::OPT_OUTPUT_DIR,
                 null,
                 InputOption::VALUE_OPTIONAL,
-                'path to the output directory',
+                'Path to the output directory',
                 BP . DS . 'patches'
             );
     }
@@ -71,6 +71,10 @@ class RectorOutputToPatch extends Command
         $filePath = $input->getOption(self::OPT_FILE_PATH);
         $ticketName = $input->getOption(self::OPT_TICKET);
         $outputDir = $input->getOption(self::OPT_OUTPUT_DIR);
+
+        if (!is_dir($outputDir) || !is_writable($outputDir)) {
+            throw new RuntimeException('Output directory does not exist or is not writable.');
+        }
 
         $styleIo = new SymfonyStyle($input, $output);
 
