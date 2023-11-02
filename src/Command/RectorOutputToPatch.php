@@ -41,7 +41,7 @@ class RectorOutputToPatch extends Command
      */
     protected function configure(): void
     {
-        $this->setName('rector:generate:composer-patches')
+        $this->setName('generate:composer-patches')
             ->setDescription('Generate composer patches for each file in json output')
             ->addOption(
                 self::OPT_FILE_PATH,
