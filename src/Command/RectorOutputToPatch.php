@@ -138,7 +138,11 @@ class RectorOutputToPatch extends Command
             $file = $patchInfo['file'];
             preg_match('/vendor\/([\w-]+\/[\w.-]+)/', (string) $file, $matches);
             $patchName = $this->generatePatchName($file, $ticketName);
-            $diff = preg_replace(['/(---) Original/', '/(\+\+\+) New/'], '\1 ' . $patchName, $diff);
+            $diff = preg_replace(
+                ['/(---) Original/', '/(\+\+\+) New/'],
+                '\1 ' . str_replace('vendor/', '', $file),
+                $diff
+            );
 
             $result[$patchName] = sprintf(
                 "@package %s\n@ticket %s\n%s",
